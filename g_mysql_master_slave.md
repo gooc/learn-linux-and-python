@@ -1,3 +1,4 @@
+#Master
 
 yum install mysql mysql-server -y
 
@@ -31,3 +32,4 @@ mysql_secure_installation
 
 >UNLOCK TABLES; `unlock if slave done`
 
+#Slave
