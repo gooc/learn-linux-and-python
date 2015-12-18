@@ -1,0 +1,57 @@
+准备工作
+selinux和iptable均关闭
+
+安装常用软件
+yum install -y lrzsz   
+上传压缩包到服务器
+rz     nginx-1.6.3.tar.gz
+
+安装依赖包
+yum install pcre pcre-devel openssl openssl-devel gcc-c++ -y
+
+
+查看安装的软件
+rpm -qa pcre pcre-devel openssl-devel openssl
+
+
+解压压缩包
+tar xf nginx-1.6.3.tar.gz 
+
+cd nginx-1.6.3
+
+创建虚拟用户nginx
+useradd -s /sbin/nologin -M nginx
+
+
+生成makefile
+./configure --prefix=/application/nginx-1.6.3 --user=nginx --group=nginx --with-http_ssl_module --with-http_stub_status_module
+
+ --with-http_ssl_module       ssl安全模块
+ --with-http_stub_status_module    状态模块（以后监控nginx的时候能用到）
+
+安装
+make  &&  make  install
+
+ln -s /application/nginx-1.6.3/ /application/nginx        （目的：去掉版本号）
+
+开启服务
+/application/nginx/sbin/nginx           可以把此句加入到/etc/rc.local中，这样就变成开机自启动了
+
+查看进程是否已有
+ps -ef | grep nginx
+
+
+
+
+
+yum install -y lrzsz   gcc-c++
+rz     nginx-1.6.3.tar.gz
+yum install pcre pcre-devel openssl -openssl-devel -y
+rpm -qa pcre pcre-devel openssl-devel openssl
+tar xf nginx-1.6.3.tar.gz
+cd nginx-1.6.3
+useradd -s /sbin/nologin -M nginx
+./configure --prefix=/application/nginx-1.6.3 --user=nginx --group=nginx --with-http_ssl_module --with-http_stub_status_module
+make  &&  make  install
+ln -s /application/nginx-1.6.3/ /application/nginx
+/application/nginx/sbin/nginx  
