@@ -5,7 +5,7 @@ chkconfig mysqld on
 
 vim /etc/my.cnf
 
-#####my.cnf content
+>`my.cnf content`
 
 >[mysqld]
 
@@ -17,7 +17,7 @@ service mysqld start
 
 mysql_secure_installation
 
-#####mysql internal command start
+>`mysql internal command start`
 
 >CREATE USER 'repl' IDENTIFIED BY 'slavepass'; #Create user for slave
 
