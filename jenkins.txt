@@ -1,0 +1,27 @@
+iOS项目设置规定
+
+打包时只使用release配置
+指定Provisioning Profile
+指定使用的证书(Code Signing Identity)
+检查Provisioning Profile是否符合Bundle ID
+push
+receive email notification
+
+iOS持续集成
+
+所需插件
+Xcode integration
+GIT plugin
+Post-Build Script Plug-in
+fir-plugin
+
+所需软件
+Xcode
+Xcode command line
+
+证书相关
+发布证书
+发布证书私钥，开放权限给codesign程序，或者对所有人可读
+在Xcode里下载provisioning file。注意：使用jenkins用户登录操作，profile会存储在，读取的是jenkins用户下的数据
+
+
